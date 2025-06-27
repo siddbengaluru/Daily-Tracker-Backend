@@ -23,7 +23,8 @@ public class SecurityConfig {
 	        .csrf().disable()
 	        .authorizeHttpRequests(auth -> auth
 	            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  // ⬅️ Allow OPTIONS
-	            .requestMatchers("/api/public/**").permitAll()           // ⬅️ Public APIs if any
+	            .requestMatchers("/api/public/**").permitAll()
+	            .requestMatchers("/api/auth/register").permitAll()// ⬅️ Public APIs if any
 	            .anyRequest().authenticated()
 	        )
 	        .httpBasic(); // or .formLogin(), or JWT filters depending on your auth method
