@@ -24,7 +24,8 @@ public class SecurityConfig {
 	        .authorizeHttpRequests(auth -> auth
 	            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()  // ⬅️ Allow OPTIONS
 	            .requestMatchers("/api/public/**").permitAll()
-	            .requestMatchers("/api/auth/register").permitAll()// ⬅️ Public APIs if any
+	            .requestMatchers("/api/auth/register").permitAll()
+	            .requestMatchers("/api/auth/login").permitAll()// ⬅️ Public APIs if any
 	            .anyRequest().authenticated()
 	        )
 	        .httpBasic(); // or .formLogin(), or JWT filters depending on your auth method
