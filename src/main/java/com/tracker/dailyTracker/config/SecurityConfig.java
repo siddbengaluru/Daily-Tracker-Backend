@@ -26,6 +26,7 @@ public class SecurityConfig {
 	            .requestMatchers("/api/public/**").permitAll()
 	            .requestMatchers("/api/auth/register").permitAll()
 	            .requestMatchers("/api/auth/login").permitAll()// ⬅️ Public APIs if any
+	            .requestMatchers("/api/tasks/**").permitAll()
 	            .anyRequest().authenticated()
 	        )
 	        .httpBasic(); // or .formLogin(), or JWT filters depending on your auth method
